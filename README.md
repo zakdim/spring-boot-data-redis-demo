@@ -56,6 +56,6 @@ the article
 * Run spring boot application and access endpoints: 
 
 ```
-http://localhost:8080/springbootdataredisdemo/save
+http://localhost:8080/springbootdataredis/save
 ...
 ```

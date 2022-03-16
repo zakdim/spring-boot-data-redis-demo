@@ -3,4 +3,4 @@ server:
   port: 8080
   # Applicationn context name
   servlet:
-    contextPath: /springbootdataredisdemo
+    contextPath: /springbootdataredis

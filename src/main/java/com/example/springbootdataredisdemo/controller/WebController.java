@@ -33,7 +33,7 @@ public class WebController {
         customerRepository.save(new Customer(4, "Jason", "Bob"));
         customerRepository.save(new Customer(5, "Merry", "Kill"));
 
-        return "Save Operation Executed Successfully. Please call findall API.";
+        return "Save Operation Executed Successfully. Please call findAll API.";
     }
 
     @RequestMapping("/findAll")
@@ -70,14 +70,14 @@ public class WebController {
 
         customerRepository.update(customer);
 
-        return "Uppercase Operation Executed Successfully. Please call findall API.";
+        return "Uppercase Operation Executed Successfully. Please call findAll API.";
     }
 
     @RequestMapping("/delete")
     public String deleteById(@RequestParam("id") Long id) {
         customerRepository.delete(id);
 
-        return "Delete Operation Executed Successfully. Please call findall API.";
+        return "Delete Operation Executed Successfully. Please call findAll API.";
     }
 
     @RequestMapping("/deleteAll")
@@ -86,10 +86,10 @@ public class WebController {
                 .map(c -> Long.valueOf(c.getId()))
                 .collect(Collectors.toList());
         if (ids.size() > 0) {
-            log.info("delete all customers for IDs {}", ids);
+            log.info("delete all customers by IDs {}", ids);
             customerRepository.delete(ids.toArray(new Long[0]));
 
-            return "Delete All Operation Executed Successfully. Please call findall API.";
+            return "Delete All Operation Executed Successfully. Please call findAll API.";
         } else {
             return "No customers to delete.";
         }
