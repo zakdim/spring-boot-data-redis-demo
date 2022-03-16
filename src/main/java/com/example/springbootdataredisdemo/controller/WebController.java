@@ -3,6 +3,7 @@ package com.example.springbootdataredisdemo.controller;
 import com.example.springbootdataredisdemo.model.Customer;
 import com.example.springbootdataredisdemo.repository.CustomerRepository;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.logging.log4j.util.Strings;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -53,9 +54,12 @@ public class WebController {
 
     @RequestMapping("/find")
     public String findById(@RequestParam("id") Long id) {
-        String result = "";
-        result = customerRepository.find(id).toString();
-        return result;
+        Customer found = customerRepository.find(id);
+        if (found != null) {
+            return found.toString();
+        } else {
+            return String.format("Customer with ID:%d is not found", id);
+        }
     }
 
     @RequestMapping(value = "/uppercase")
