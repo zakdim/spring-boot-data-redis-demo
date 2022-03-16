@@ -27,6 +27,21 @@ Mar 15 11:59:27 ubuntu systemd[1]: redis-server.service: Can't open PID file /va
 Mar 15 11:59:27 ubuntu systemd[1]: Started Advanced key-value store.
 ```
 
+* RedisInsight: Redis GUI - Get Started
+  https://docs.redis.com/latest/ri/installing/install-redis-desktop/
+
+```
+chmod +x redisinsight-linux64-<version>
+```
+
+* Start RedisInsight (Redis GUI)
+
+```
+./redisinsight-linux64-<version>
+```
+
+To access your RedisInsight GUI, open a web browser and navigate to http://127.0.0.1:8001
+
 # Initialise demo application
 
 * [Spring Initializr](https://start.spring.io/)
