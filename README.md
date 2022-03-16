@@ -57,5 +57,4 @@ the article
 
 ```
 http://localhost:8080/springbootdataredis/save
-...
 ```
