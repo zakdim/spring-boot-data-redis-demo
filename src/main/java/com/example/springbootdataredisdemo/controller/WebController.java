@@ -79,12 +79,15 @@ public class WebController {
     @RequestMapping("/deleteAll")
     public String deleteAll() {
         List<Long> ids = customerRepository.findAll().values().stream()
-                .mapToLong(c -> c.getId())
-                .boxed()
+                .map(c -> Long.valueOf(c.getId()))
                 .collect(Collectors.toList());
-        log.info("delete all customers for IDs {}", ids);
-        customerRepository.delete(ids.toArray(new Long[0]));
+        if (ids.size() > 0) {
+            log.info("delete all customers for IDs {}", ids);
+            customerRepository.delete(ids.toArray(new Long[0]));
 
-        return "Delete All Operation Executed Successfully. Please call findall API.";
+            return "Delete All Operation Executed Successfully. Please call findall API.";
+        } else {
+            return "No customers to delete.";
+        }
     }
 }

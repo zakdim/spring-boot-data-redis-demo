@@ -58,7 +58,10 @@ public class CustomerRepositoryImpl implements CustomerRepository {
 
     @Override
     public void delete(Long... ids) {
+        if (!(ids.length > 0)) throw new IllegalArgumentException("list of IDs should not be empty");
+
         log.info("delete customers by IDs {}", Arrays.asList(ids));
         hashOperations.delete(KEY, ids);
+
     }
 }
