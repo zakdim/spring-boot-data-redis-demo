@@ -56,5 +56,7 @@ the article
 * Run spring boot application and access endpoints: 
 
 ```
+# See WebController for all available endpoints
 http://localhost:8080/springbootdataredis/save
+http://localhost:8080/springbootdataredis/findAll
 ```
